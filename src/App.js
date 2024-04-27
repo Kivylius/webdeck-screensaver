@@ -2,7 +2,7 @@ import React from "react";
 import { bounce } from "./screensavers/bounce";
 
 export const init = ({ drawKey, config }) => {
-  console.log("HOTLINKER: init was called", drawKey, config);
+  console.log("webdeck-screensaver inited", drawKey, config);
 
   const interval = setInterval(() => {
     drawKey(({ ctx, canvas }) => {
