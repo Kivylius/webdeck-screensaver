@@ -51,7 +51,8 @@ __webpack_require__.d(__webpack_exports__, {
 /* harmony import */var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */"89");
 /* harmony import */var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */var _screensavers_bounce__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./screensavers/bounce */"831");
+/* harmony import */var _screensavers_atom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./screensavers/atom */"674");
+/* harmony import */var _screensavers_bounce__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./screensavers/bounce */"831");
 function _define_property(obj, key, value) {
     if (key in obj) Object.defineProperty(obj, key, {
         value: value,
@@ -97,15 +98,17 @@ function _object_spread_props(target, source) {
 
 
 
+
  var init = function(param) {
     var drawKey = param.drawKey, config = param.config;
     console.log("webdeck-screensaver inited", drawKey, config);
     var interval = setInterval(function() {
         drawKey(function(param) {
             var ctx = param.ctx, canvas = param.canvas;
-            if ((config === null || config === void 0 ? void 0 : config.type) === undefined || (config === null || config === void 0 ? void 0 : config.type) === "bounce") (0, _screensavers_bounce__WEBPACK_IMPORTED_MODULE_2__.bounce)(ctx, canvas);
+            if ((config === null || config === void 0 ? void 0 : config.type) === undefined || (config === null || config === void 0 ? void 0 : config.type) === "atom") (0, _screensavers_atom__WEBPACK_IMPORTED_MODULE_2__.atom)(ctx, canvas);
+            else if ((config === null || config === void 0 ? void 0 : config.type) === "bounce") (0, _screensavers_bounce__WEBPACK_IMPORTED_MODULE_3__.bounce)(ctx, canvas);
         });
-    }, 500);
+    }, 100);
     return function() {
         clearInterval(interval);
     };
@@ -148,28 +151,35 @@ var App = function(param) {
                                 value: "",
                                 disabled: true,
                                 hidden: true,
-                                children: "bounce"
+                                children: "atom"
+                            }),
+                            /*#__PURE__*/ (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("option", {
+                                value: "atom",
+                                children: "atom *"
                             }),
                             /*#__PURE__*/ (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("option", {
                                 value: "bounce",
-                                children: "bounce"
+                                children: "bounce *"
                             })
                         ]
                     })
                 ]
+            }),
+            /*#__PURE__*/ (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("small", {
+                children: "* page reload required"
             })
         ]
     });
 };
 var __WEBPACK_DEFAULT_EXPORT__ = App;
 }),
-"831": (function (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+"674": (function (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, {
-  bounce: function() { return bounce; }
+  atom: function() { return atom; }
 });
- var bounce = function(ctx, canvas) {
+ var atom = function(ctx, canvas) {
     ctx.beginPath();
     ctx.arc(Math.random() * 72, Math.random() * 72, 10, 0, 2 * Math.PI);
     ctx.stroke();
@@ -178,6 +188,51 @@ __webpack_require__.d(__webpack_exports__, {
     ctx.lineWidth = 4;
     ctx.strokeStyle = "yellow";
     ctx.stroke();
+};
+}),
+"831": (function (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+__webpack_require__.d(__webpack_exports__, {
+  bounce: function() { return bounce; }
+});
+function Square(x, y, size, color) {
+    var _this = this;
+    this.x = x;
+    this.y = y;
+    this.dx = 5; // this.dx is what we will now add to this.x every frame
+    this.dy = 5; // this.dx is what we will now add to this.x every frame
+    this.size = size;
+    this.color = color;
+    this.draw = function(ctx) {
+        ctx.fillStyle = _this.color;
+        ctx.fillRect(_this.x, _this.y, _this.size, _this.size);
+    };
+    this.animate = function(canvas) {
+        _this.x += _this.dx;
+        _this.y += _this.dy;
+        // this.y += this.dx;
+        if (_this.x + _this.size >= canvas.width || _this.x <= 0) _this.dx = -_this.dx;
+        if (_this.y + _this.size >= canvas.height || _this.y <= 0) _this.dy = -_this.dy;
+    };
+// const bounceOffWalls = square => {
+//   if (square.x + square.size >= canvas.width || square.x <= 0) {
+//     square.dx = -square.dx;
+//   }
+// };
+}
+var redSquare = new Square(25, 12, 13, "red");
+ var bounce = function(ctx, canvas) {
+    redSquare.animate(canvas);
+    redSquare.draw(ctx);
+// ctx.beginPath();
+// ctx.arc(Math.random() * 72, Math.random() * 72, 10, 0, 2 * Math.PI);
+// ctx.stroke();
+// ctx.fillStyle = "red";
+// ctx.fill();
+// ctx.lineWidth = 4;
+// ctx.strokeStyle = "yellow";
+// ctx.stroke();
 };
 }),
 
