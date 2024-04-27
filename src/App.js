@@ -1,4 +1,5 @@
 import React from "react";
+import { atom } from "./screensavers/atom";
 import { bounce } from "./screensavers/bounce";
 
 export const init = ({ drawKey, config }) => {
@@ -6,11 +7,13 @@ export const init = ({ drawKey, config }) => {
 
   const interval = setInterval(() => {
     drawKey(({ ctx, canvas }) => {
-      if (config?.type === undefined || config?.type === "bounce") {
+      if (config?.type === undefined || config?.type === "atom") {
+        atom(ctx, canvas);
+      } else if (config?.type === "bounce") {
         bounce(ctx, canvas);
       }
     });
-  }, 500);
+  }, 100);
 
   return () => {
     clearInterval(interval);
@@ -47,11 +50,13 @@ const App = ({ config, setConfig }) => {
           value={config.type || ""}
         >
           <option value="" disabled hidden>
-            bounce
+            atom
           </option>
-          <option value="bounce">bounce</option>
+          <option value="atom">atom *</option>
+          <option value="bounce">bounce *</option>
         </select>
       </div>
+      <small>* page reload required</small>
     </div>
   );
 };
