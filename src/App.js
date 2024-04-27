@@ -33,11 +33,11 @@ const App = ({ config, setConfig }) => {
       style={{
         borderRadius: "4px",
         padding: "2em",
-        backgroundColor: "cyan",
+        backgroundColor: "#00D1D1",
         color: "white",
       }}
     >
-      <div>hello from webdeck-screensaver</div>
+      <h3>hello from webdeck-screensaver</h3>
       <div className="setting">
         <label htmlFor="type">screensaver: </label>
         <select
