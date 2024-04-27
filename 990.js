@@ -99,7 +99,7 @@ function _object_spread_props(target, source) {
 
  var init = function(param) {
     var drawKey = param.drawKey, config = param.config;
-    console.log("HOTLINKER: init was called", drawKey, config);
+    console.log("webdeck-screensaver inited", drawKey, config);
     var interval = setInterval(function() {
         drawKey(function(param) {
             var ctx = param.ctx, canvas = param.canvas;
