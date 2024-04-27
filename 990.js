@@ -103,7 +103,7 @@ function _object_spread_props(target, source) {
     var interval = setInterval(function() {
         drawKey(function(param) {
             var ctx = param.ctx, canvas = param.canvas;
-            if (!config.type || (config === null || config === void 0 ? void 0 : config.type) === "bounce") (0, _screensavers_bounce__WEBPACK_IMPORTED_MODULE_2__.bounce)(ctx, canvas);
+            if ((config === null || config === void 0 ? void 0 : config.type) === undefined || (config === null || config === void 0 ? void 0 : config.type) === "bounce") (0, _screensavers_bounce__WEBPACK_IMPORTED_MODULE_2__.bounce)(ctx, canvas);
         });
     }, 500);
     return function() {
