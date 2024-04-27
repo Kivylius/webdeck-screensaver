@@ -1,8 +1,6 @@
-# 🔌 webdeck-plugin-template
+# 🔌 webdeck-screensaver
 
-This is a starting repo to create plugins for the webdeck web app. Everything is set up in this template to get started. Press the `Use this Template` to create a new plugin.
-
-- ⭐ [How to use this template](https://github.com/webdeckjs/webdeck/wiki/How-to-create-a-new-Plugin)
+Web deck screensaver plugin to illustrate the power of a byspoke drawing experience.
 
 ## Usage
 
