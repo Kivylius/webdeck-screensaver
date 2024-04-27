@@ -124,11 +124,11 @@ var App = function(param) {
         style: {
             borderRadius: "4px",
             padding: "2em",
-            backgroundColor: "cyan",
+            backgroundColor: "#00D1D1",
             color: "white"
         },
         children: [
-            /*#__PURE__*/ (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            /*#__PURE__*/ (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
                 children: "hello from webdeck-screensaver"
             }),
             /*#__PURE__*/ (0, react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
