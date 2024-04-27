@@ -6,7 +6,7 @@ export const init = ({ drawKey, config }) => {
 
   const interval = setInterval(() => {
     drawKey(({ ctx, canvas }) => {
-      if (!config.type || config?.type === "bounce") {
+      if (config?.type === undefined || config?.type === "bounce") {
         bounce(ctx, canvas);
       }
     });
