@@ -3412,7 +3412,7 @@ __webpack_require__.d(exports, {
 	get: () => (__webpack_require__.getContainer),
 	init: () => (__webpack_require__.initContainer)
 });}),
-"500": (function (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+"180": (function (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */var _home_runner_work_webdeck_screensaver_webdeck_screensaver_node_modules_rspack_core_node_modules_module_federation_webpack_bundler_runtime_dist_index_cjs_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! /home/runner/work/webdeck-screensaver/webdeck-screensaver/node_modules/@rspack/core/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.js */"426");
@@ -3420,7 +3420,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const __module_federation_runtime_plugins__ = [];
 const __module_federation_remote_infos__ = {};
-const __module_federation_container_name__ = "webdeck_plugin_template";
+const __module_federation_container_name__ = "webdeck_screensaver";
 var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 if (__webpack_require__.initializeSharingData || __webpack_require__.initializeExposesData) {
     const override = (obj, key, value)=>{
@@ -3663,7 +3663,7 @@ __webpack_require__.n = function (module) {
 !function() {
 
 __webpack_require__.S = {};
-__webpack_require__.initializeSharingData = { scopeToSharingDataMapping: { "default": [{ name: "react-dom", version: "18.3.1", factory: function() { return __webpack_require__.el("585@").then(function() { return function() { return __webpack_require__(/*! /home/runner/work/webdeck-screensaver/webdeck-screensaver/node_modules/react-dom/index.js */"935"); }; }); }, eager: 0 }, { name: "react", version: "18.3.1", factory: function() { return __webpack_require__.el("362@").then(function() { return function() { return __webpack_require__(/*! /home/runner/work/webdeck-screensaver/webdeck-screensaver/node_modules/react/index.js */"294"); }; }); }, eager: 0 }] }, uniqueName: "webdeck-plugin-template" };
+__webpack_require__.initializeSharingData = { scopeToSharingDataMapping: { "default": [{ name: "react-dom", version: "18.3.1", factory: function() { return __webpack_require__.el("585@").then(function() { return function() { return __webpack_require__(/*! /home/runner/work/webdeck-screensaver/webdeck-screensaver/node_modules/react-dom/index.js */"935"); }; }); }, eager: 0 }, { name: "react", version: "18.3.1", factory: function() { return __webpack_require__.el("362@").then(function() { return function() { return __webpack_require__(/*! /home/runner/work/webdeck-screensaver/webdeck-screensaver/node_modules/react/index.js */"294"); }; }); }, eager: 0 }] }, uniqueName: "webdeck-screensaver" };
 __webpack_require__.I = function() { throw new Error("should have __webpack_require__.I") }
 
 }();
@@ -3693,7 +3693,7 @@ __webpack_require__.I = function() { throw new Error("should have __webpack_requ
 !function() {
 var inProgress = {};
 
-var dataWebpackPrefix = "webdeck-plugin-template:";
+var dataWebpackPrefix = "webdeck-screensaver:";
 // loadScript function to load a script via script tag
 __webpack_require__.l = function (url, done, key, chunkId) {
 	if (inProgress[url]) {
@@ -3775,7 +3775,7 @@ __webpack_require__.f.consumes = function() { throw new Error("should have __web
       // object to store loaded and loading chunks
       // undefined = chunk not loaded, null = chunk preloaded/prefetched
       // [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-      var installedChunks = {"189": 0,};
+      var installedChunks = {"936": 0,};
       
         __webpack_require__.f.j = function (chunkId, promises) {
           // JSONP chunk loading for javascript
@@ -3862,7 +3862,7 @@ var webpackJsonpCallback = function (parentChunkLoadingFunction, data) {
 	
 };
 
-var chunkLoadingGlobal = self["webpackChunkwebdeck_plugin_template"] = self["webpackChunkwebdeck_plugin_template"] || [];
+var chunkLoadingGlobal = self["webpackChunkwebdeck_screensaver"] = self["webpackChunkwebdeck_screensaver"] || [];
 chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 chunkLoadingGlobal.push = webpackJsonpCallback.bind(
 	null,
@@ -3907,8 +3907,8 @@ __webpack_require__.getContainer = function() { throw new Error("should have __w
     __webpack_require__.p = scriptUrl
     
 }();
-__webpack_require__("500");
-var __webpack_exports__ = __webpack_require__("358");self.webdeck_plugin_template = __webpack_exports__;
+__webpack_require__("180");
+var __webpack_exports__ = __webpack_require__("358");self.webdeck_screensaver = __webpack_exports__;
 
 })()
 
