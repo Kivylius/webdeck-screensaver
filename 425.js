@@ -108,7 +108,7 @@ function _object_spread_props(target, source) {
             if ((config === null || config === void 0 ? void 0 : config.type) === undefined || (config === null || config === void 0 ? void 0 : config.type) === "atom") (0, _screensavers_atom__WEBPACK_IMPORTED_MODULE_2__.atom)(ctx, canvas);
             else if ((config === null || config === void 0 ? void 0 : config.type) === "bounce") (0, _screensavers_bounce__WEBPACK_IMPORTED_MODULE_3__.bounce)(ctx, canvas);
         });
-    }, 100);
+    }, 50);
     return function() {
         clearInterval(interval);
     };
@@ -217,12 +217,37 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, {
   bounce: function() { return bounce; }
 });
+function _array_like_to_array(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+    for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
+    return arr2;
+}
+function _array_without_holes(arr) {
+    if (Array.isArray(arr)) return _array_like_to_array(arr);
+}
+function _iterable_to_array(iter) {
+    if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+}
+function _non_iterable_spread() {
+    throw new TypeError("Invalid attempt to spread non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _to_consumable_array(arr) {
+    return _array_without_holes(arr) || _iterable_to_array(arr) || _unsupported_iterable_to_array(arr) || _non_iterable_spread();
+}
+function _unsupported_iterable_to_array(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _array_like_to_array(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(n);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _array_like_to_array(o, minLen);
+}
 function Square(x, y, size, color) {
     var _this = this;
     this.x = x;
     this.y = y;
-    this.dx = 5; // this.dx is what we will now add to this.x every frame
-    this.dy = 5; // this.dx is what we will now add to this.x every frame
+    this.dx = Math.random() * 2; // this.dx is what we will now add to this.x every frame
+    this.dy = Math.random() * 2; // this.dx is what we will now add to this.x every frame
     this.size = size;
     this.color = color;
     this.draw = function(ctx) {
@@ -236,24 +261,68 @@ function Square(x, y, size, color) {
         if (_this.x + _this.size >= canvas.width || _this.x <= 0) _this.dx = -_this.dx;
         if (_this.y + _this.size >= canvas.height || _this.y <= 0) _this.dy = -_this.dy;
     };
-// const bounceOffWalls = square => {
-//   if (square.x + square.size >= canvas.width || square.x <= 0) {
-//     square.dx = -square.dx;
-//   }
-// };
 }
-var redSquare = new Square(25, 12, 13, "red");
+var colorArray = [
+    "#FF6633",
+    "#FFB399",
+    "#FF33FF",
+    "#FFFF99",
+    "#00B3E6",
+    "#E6B333",
+    "#3366E6",
+    "#999966",
+    "#99FF99",
+    "#B34D4D",
+    "#80B300",
+    "#809900",
+    "#E6B3B3",
+    "#6680B3",
+    "#66991A",
+    "#FF99E6",
+    "#CCFF1A",
+    "#FF1A66",
+    "#E6331A",
+    "#33FFCC",
+    "#66994D",
+    "#B366CC",
+    "#4D8000",
+    "#B33300",
+    "#CC80CC",
+    "#66664D",
+    "#991AFF",
+    "#E666FF",
+    "#4DB3FF",
+    "#1AB399",
+    "#E666B3",
+    "#33991A",
+    "#CC9999",
+    "#B3B31A",
+    "#00E680",
+    "#4D8066",
+    "#809980",
+    "#E6FF80",
+    "#1AFF33",
+    "#999933",
+    "#FF3380",
+    "#CCCC00",
+    "#66E64D",
+    "#4D80CC",
+    "#9900B3",
+    "#E64D66",
+    "#4DB380",
+    "#FF4D4D",
+    "#99E6E6",
+    "#6666FF"
+];
+var sqrz = _to_consumable_array(Array(20).keys()).map(function() {
+    return new Square(Math.random() * 72, Math.random() * 72, 8, // @ts-ignore
+    colorArray[parseInt(Math.random() * 70)]);
+});
  var bounce = function(ctx, canvas) {
-    redSquare.animate(canvas);
-    redSquare.draw(ctx);
-// ctx.beginPath();
-// ctx.arc(Math.random() * 72, Math.random() * 72, 10, 0, 2 * Math.PI);
-// ctx.stroke();
-// ctx.fillStyle = "red";
-// ctx.fill();
-// ctx.lineWidth = 4;
-// ctx.strokeStyle = "yellow";
-// ctx.stroke();
+    sqrz.forEach(function(sqr) {
+        sqr.animate(canvas);
+        sqr.draw(ctx);
+    });
 };
 }),
 
