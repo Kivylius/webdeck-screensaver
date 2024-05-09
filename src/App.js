@@ -13,7 +13,7 @@ export const init = ({ drawKey, config }) => {
         bounce(ctx, canvas);
       }
     });
-  }, 100);
+  }, 50);
 
   return () => {
     clearInterval(interval);
